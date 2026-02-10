@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --background: #111111;
+  --foreground: #ffffff;
+  --primary: #a3e635; /* Lime green */
+  --secondary: #1a1a1a;
+  --accent: #222222;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Smooth scrolling for content sections */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Content sections styling */
+.content-sections section {
+  scroll-snap-align: start;
+}
+
+.content-sections {
+  scroll-snap-type: y mandatory;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure inputs on light backgrounds have dark text */
+input:not([type="submit"]):not([type="button"]), 
+textarea, 
+select {
+  color: #111111;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #666666;
+}
+
+/* Public contact form override to keep white text */
+.public-content input,
+.public-content textarea,
+.public-content select,
+form.space-y-4 input.text-white,
+form.space-y-4 textarea.text-white {
+  color: #ffffff;
+}
