@@ -10,6 +10,8 @@ export default async function AdminDashboard() {
   }
 
   const dashboardCards = [
+    { title: "Bio", description: "Manage About Me Content", icon: "👤", href: "/admin/bio", subtitle: "Professional Summary" },
+    { title: "Wins", description: "Manage Key Achievements", icon: "🏆", href: "/admin/achievements", subtitle: "Milestones" },
     { title: "Projects", description: "Manage Portfolio Projects", icon: "💼", href: "/admin/projects", subtitle: "Project Portfolio" },
     { title: "Experience", description: "Manage Work History", icon: "📄", href: "/admin/experience", subtitle: "Career Timeline" },
     { title: "Skills", description: "Manage Technical Skills", icon: "⭐", href: "/admin/skills", subtitle: "Tech Stack" },

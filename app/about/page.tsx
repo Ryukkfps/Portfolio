@@ -2,6 +2,8 @@ import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 
 export default async function AboutPage() {
+  const bio = await prisma.bio.findFirst();
+
   const experiences = await prisma.experience.findMany({
     orderBy: { order: 'asc' }
   });
@@ -33,33 +35,47 @@ export default async function AboutPage() {
             <div className="absolute -inset-4 bg-[#a3e635]/20 group-hover:bg-[#a3e635]/30 transition-all duration-500 blur-2xl"></div>
             <div className="relative aspect-[4/5] bg-neutral-900 border border-white/10 overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000"
-                alt="Kartikey Gupta"
+                src={bio?.image || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000"}
+                alt={bio?.name || "Kartikey Gupta"}
                 className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
               />
             </div>
           </div>
           <div className="space-y-8">
-            <h2 className="text-4xl font-black text-white uppercase tracking-tighter italic">Software Engineer</h2>
+            <h2 className="text-4xl font-black text-white uppercase tracking-tighter italic">{bio?.title || "Software Engineer"}</h2>
             <div className="space-y-6">
-              <p className="text-gray-400 leading-relaxed text-xl font-medium">
-                Full Stack Developer with over 3 years of experience building and maintaining scalable web applications. 
-                Led the development of multiple applications to automate core business processes, significantly improving operational efficiency.
-              </p>
-              <p className="text-gray-400 leading-relaxed text-xl font-medium">
-                Skilled in both frontend and backend development, with a strong focus on clean architecture, performance optimization, and delivering user-friendly solutions. 
-              </p>
+              {bio?.description.map((para, i) => (
+                <p key={i} className="text-gray-400 leading-relaxed text-xl font-medium">
+                  {para}
+                </p>
+              )) || (
+                <p className="text-gray-400 leading-relaxed text-xl font-medium">
+                  Full Stack Developer with over 3 years of experience building and maintaining scalable web applications. 
+                </p>
+              )}
             </div>
             <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
               <div>
                 <p className="text-[#a3e635] text-[10px] font-black tracking-[0.2em] uppercase mb-2">Location</p>
-                <p className="text-white font-bold uppercase tracking-widest text-sm">Prayagraj, UP</p>
+                <p className="text-white font-bold uppercase tracking-widest text-sm">{bio?.location || "Prayagraj, UP"}</p>
               </div>
               <div>
                 <p className="text-[#a3e635] text-[10px] font-black tracking-[0.2em] uppercase mb-2">Experience</p>
-                <p className="text-white font-bold uppercase tracking-widest text-sm">3+ Years</p>
+                <p className="text-white font-bold uppercase tracking-widest text-sm">{bio?.experienceYears || "3+ Years"}</p>
               </div>
             </div>
+            {bio?.resumeUrl && (
+              <div className="pt-8">
+                <a 
+                  href={bio.resumeUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block px-8 py-3 border border-[#a3e635] text-[#a3e635] text-[10px] font-black tracking-[0.3em] uppercase hover:bg-[#a3e635] hover:text-black transition-all"
+                >
+                  Download CV
+                </a>
+              </div>
+            )}
           </div>
         </section>
 
