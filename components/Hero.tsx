@@ -50,13 +50,13 @@ export default function Hero({ initialSlides }: { initialSlides: Slide[] }) {
 
         <div className="flex flex-wrap gap-6 items-center">
           <Link 
-            href="/projects" 
+            href="/about" 
             className="px-8 py-4 border border-gray-700 text-gray-300 text-[10px] font-black tracking-[0.3em] uppercase hover:bg-white hover:text-black hover:border-white transition-all"
           >
             Show Profile
           </Link>
           <Link 
-            href="/contact" 
+            href="/projects" 
             className="px-8 py-4 bg-[#a3e635] text-black text-[10px] font-black tracking-[0.3em] uppercase hover:bg-[#bef264] transition-all shadow-[0_0_20px_rgba(163,230,53,0.3)]"
           >
             {slide.ctaText}
