@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
 import path from "path";
+import fs from "fs";
 
 export async function POST(request: NextRequest) {
   try {
@@ -31,17 +31,16 @@ export async function POST(request: NextRequest) {
     const originalName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
     const filename = `${timestamp}_${originalName}`;
 
-    // Create uploads directory if it doesn't exist
-    const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
-    try {
-      await mkdir(uploadsDir, { recursive: true });
-    } catch (error) {
-      // Directory might already exist, that's okay
+    // Standardized upload logic
+    const uploadDir = path.join(process.cwd(), "public", "uploads");
+
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
     }
 
-    // Write file to uploads directory
-    const filepath = path.join(uploadsDir, filename);
-    await writeFile(filepath, buffer);
+    const filePath = path.join(uploadDir, filename);
+
+    await fs.promises.writeFile(filePath, buffer);
 
     // Return the public URL path
     const publicPath = `/uploads/${filename}`;
