@@ -13,7 +13,7 @@ interface Experience {
   description: string[];
   order: number;
 }
-
+export const dynamic = "force-dynamic";
 export default function ExperienceManagement() {
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [loading, setLoading] = useState(true);

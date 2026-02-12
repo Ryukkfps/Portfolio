@@ -12,7 +12,7 @@ interface Enquiry {
   status: string;
   createdAt: string;
 }
-
+export const dynamic = "force-dynamic";
 export default function EnquiriesManagement() {
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
   const [loading, setLoading] = useState(true);

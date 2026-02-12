@@ -11,7 +11,7 @@ interface Service {
   order: number;
   isActive: boolean;
 }
-
+export const dynamic = "force-dynamic";
 export default function ServicesManagement() {
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);

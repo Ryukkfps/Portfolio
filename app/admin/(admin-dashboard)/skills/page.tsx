@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Plus, Pencil, Trash2, Code, Server, Database, Globe, Cpu, Smartphone } from 'lucide-react';
-
+export const dynamic = "force-dynamic";
 interface Skill {
   id: string;
   name: string;

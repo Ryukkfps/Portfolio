@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Save, User, Image as ImageIcon, MapPin, Calendar, FileText } from 'lucide-react';
-
+export const dynamic = "force-dynamic";
 interface Bio {
   id: string;
   name: string;

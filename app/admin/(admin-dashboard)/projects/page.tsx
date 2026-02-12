@@ -15,7 +15,7 @@ interface Project {
   order: number;
   isActive: boolean;
 }
-
+export const dynamic = "force-dynamic";
 export default function ProjectsManagement() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);

@@ -11,7 +11,7 @@ interface Education {
   location: string;
   order: number;
 }
-
+export const dynamic = "force-dynamic";
 export default function EducationManagement() {
   const [educations, setEducations] = useState<Education[]>([]);
   const [loading, setLoading] = useState(true);
