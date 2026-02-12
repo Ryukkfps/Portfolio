@@ -39,10 +39,10 @@ export default function Hero({ initialSlides }: { initialSlides: Slide[] }) {
       {/* Content */}
       <div className="relative z-20 max-w-2xl animate-fadeInUp">
         <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
-          {slide.subtitle} <span className="text-[#a3e635]">{slide.title}</span>
+          {slide.subtitle} <span className="text-[#65a30d]">{slide.title}</span>
         </h2>
         
-        <div className="mb-10 overflow-hidden border-l-4 border-[#a3e635] pl-6 py-2">
+        <div className="mb-10 overflow-hidden border-l-4 border-[#65a30d] pl-6 py-2">
           <p className="text-xl md:text-2xl text-gray-400 font-light tracking-wide">
             {slide.description}
           </p>
@@ -57,7 +57,7 @@ export default function Hero({ initialSlides }: { initialSlides: Slide[] }) {
           </Link>
           <Link 
             href="/projects" 
-            className="px-8 py-4 bg-[#a3e635] text-black text-[10px] font-black tracking-[0.3em] uppercase hover:bg-[#bef264] transition-all shadow-[0_0_20px_rgba(163,230,53,0.3)]"
+            className="px-8 py-4 bg-[#65a30d] text-black text-[10px] font-black tracking-[0.3em] uppercase hover:bg-[#bef264] transition-all shadow-[0_0_20px_rgba(163,230,53,0.3)]"
           >
             {slide.ctaText}
           </Link>

@@ -8,16 +8,12 @@ import {
 import Link from 'next/link';
 
 export default async function AdminDashboard() {
-  const [enquiriesCount, appointmentsCount, reviewsCount] = await Promise.all([
+  const [enquiriesCount] = await Promise.all([
     prisma.enquiry.count({ where: { status: 'PENDING' } }),
-    prisma.appointment.count({ where: { status: 'PENDING' } }),
-    prisma.review.count({ where: { isApproved: false } }),
   ]);
 
   const stats = [
     { name: 'Pending Enquiries', value: enquiriesCount, icon: Mail, color: 'text-blue-600', bg: 'bg-blue-50', href: '/admin/enquiries' },
-    { name: 'New Appointments', value: appointmentsCount, icon: Calendar, color: 'text-green-600', bg: 'bg-green-50', href: '/admin/appointments' },
-    { name: 'Reviews to Moderate', value: reviewsCount, icon: Star, color: 'text-yellow-600', bg: 'bg-yellow-50', href: '/admin/reviews' },
   ];
 
   return (

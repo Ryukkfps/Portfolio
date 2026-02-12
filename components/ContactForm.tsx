@@ -42,7 +42,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-[#a3e635] p-12 text-center">
+      <div className="bg-[#65a30d] p-12 text-center">
         <div className="text-black text-6xl mb-6 font-black">✓</div>
         <h3 className="text-2xl font-black text-black mb-4 uppercase tracking-tighter italic">Message Sent!</h3>
         <p className="text-black/70 font-bold uppercase tracking-widest text-sm">
@@ -50,7 +50,7 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="mt-10 px-8 py-3 bg-black text-[#a3e635] text-[10px] font-black tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all"
+          className="mt-10 px-8 py-3 bg-black text-[#65a30d] text-[10px] font-black tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all"
         >
           Send Another
         </button>
@@ -73,7 +73,7 @@ export default function ContactForm() {
           required
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full px-6 py-4 bg-white/5 border border-white/10 focus:outline-none focus:border-[#a3e635] text-white placeholder-gray-600 text-xs font-bold uppercase tracking-widest transition-all"
+          className="w-full px-6 py-4 bg-white/5 border border-white/10 focus:outline-none focus:border-[#65a30d] text-white placeholder-gray-600 text-xs font-bold uppercase tracking-widest transition-all"
           placeholder="Your Name *"
         />
         
@@ -83,7 +83,7 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full px-6 py-4 bg-white/5 border border-white/10 focus:outline-none focus:border-[#a3e635] text-white placeholder-gray-600 text-xs font-bold uppercase tracking-widest transition-all"
+          className="w-full px-6 py-4 bg-white/5 border border-white/10 focus:outline-none focus:border-[#65a30d] text-white placeholder-gray-600 text-xs font-bold uppercase tracking-widest transition-all"
           placeholder="Your Email *"
         />
       </div>
@@ -94,7 +94,7 @@ export default function ContactForm() {
         required
         value={formData.subject}
         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-        className="w-full px-6 py-4 bg-white/5 border border-white/10 focus:outline-none focus:border-[#a3e635] text-white placeholder-gray-600 text-xs font-bold uppercase tracking-widest transition-all"
+        className="w-full px-6 py-4 bg-white/5 border border-white/10 focus:outline-none focus:border-[#65a30d] text-white placeholder-gray-600 text-xs font-bold uppercase tracking-widest transition-all"
         placeholder="Subject *"
       />
       
@@ -104,14 +104,14 @@ export default function ContactForm() {
         rows={4}
         value={formData.message}
         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-        className="w-full px-6 py-4 bg-white/5 border border-white/10 focus:outline-none focus:border-[#a3e635] text-white placeholder-gray-600 text-xs font-bold uppercase tracking-widest transition-all resize-none"
+        className="w-full px-6 py-4 bg-white/5 border border-white/10 focus:outline-none focus:border-[#65a30d] text-white placeholder-gray-600 text-xs font-bold uppercase tracking-widest transition-all resize-none"
         placeholder="Your Message *"
       />
       
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-[#a3e635] text-black py-5 px-8 text-[10px] font-black tracking-[0.4em] uppercase hover:bg-white transition-all disabled:opacity-50"
+        className="w-full bg-[#65a30d] text-black py-5 px-8 text-[10px] font-black tracking-[0.4em] uppercase hover:bg-white transition-all disabled:opacity-50"
       >
         {isSubmitting ? 'Sending...' : 'Submit Message'}
       </button>

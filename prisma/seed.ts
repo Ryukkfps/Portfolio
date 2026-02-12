@@ -17,6 +17,7 @@ async function main() {
     await prisma.contactInfo.deleteMany({});
     await prisma.enquiry.deleteMany({});
     await prisma.carouselSlide.deleteMany({});
+    await prisma.service.deleteMany({});
   } catch (e) {
     console.log("Cleanup failed (likely because collections don't exist yet), continuing...");
   }
@@ -121,6 +122,38 @@ async function main() {
 
   for (const data of skills) {
     await prisma.skill.create({ data });
+  }
+
+  // Create Services
+  const services = [
+    {
+      title: "Full Stack Development",
+      description: "Building robust, scalable web applications from scratch using modern frameworks and clean architecture.",
+      icon: "💻",
+      order: 1,
+    },
+    {
+      title: "Frontend Engineering",
+      description: "Crafting highly interactive and responsive user interfaces with React, Next.js, and advanced CSS techniques.",
+      icon: "🎨",
+      order: 2,
+    },
+    {
+      title: "Backend & APIs",
+      description: "Designing efficient database schemas and developing high-performance RESTful APIs with Node.js and .NET.",
+      icon: "⚙️",
+      order: 3,
+    },
+    {
+      title: "Process Automation",
+      description: "Streamlining business workflows and reducing manual effort through custom automation tools.",
+      icon: "🚀",
+      order: 4,
+    }
+  ];
+
+  for (const data of services) {
+    await prisma.service.create({ data });
   }
 
   // Create Education

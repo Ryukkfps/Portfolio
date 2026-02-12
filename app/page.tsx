@@ -31,6 +31,8 @@ export default async function Home() {
     orderBy: { order: 'asc' }
   });
 
+  const bio = await prisma.bio.findFirst();
+
   const iconMap: Record<string, any> = {
     code: Code,
     server: Server,
@@ -50,7 +52,7 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-4xl font-bold text-white mb-4 tracking-tight uppercase">Our Services</h2>
-              <div className="w-20 h-1 bg-[#a3e635] mx-auto mb-6"></div>
+              <div className="w-20 h-1 bg-[#65a30d] mx-auto mb-6"></div>
               <p className="text-gray-500 uppercase tracking-[0.3em] text-xs font-bold">What I offer to my clients</p>
             </div>
 
@@ -58,9 +60,9 @@ export default async function Home() {
               {skills.slice(0, 3).map((skill) => {
                 const Icon = iconMap[skill.icon || 'code'] || Code;
                 return (
-                  <div key={skill.id} className="bg-[#1a1a1a] p-12 border border-white/5 hover:border-[#a3e635]/30 transition-all group text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-[#111111] mb-8 border border-white/10 group-hover:bg-[#a3e635] transition-all">
-                      <Icon className="w-8 h-8 text-[#a3e635] group-hover:text-black transition-all" />
+                  <div key={skill.id} className="bg-[#1a1a1a] p-12 border border-white/5 hover:border-[#65a30d]/30 transition-all group text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-[#111111] mb-8 border border-white/10 group-hover:bg-[#65a30d] transition-all">
+                      <Icon className="w-8 h-8 text-[#65a30d] group-hover:text-black transition-all" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-wider">{skill.name}</h3>
                     <p className="text-gray-500 leading-relaxed text-sm">
@@ -78,7 +80,7 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-4xl font-bold text-white mb-4 tracking-tight uppercase">My Portfolio</h2>
-              <div className="w-20 h-1 bg-[#a3e635] mx-auto mb-6"></div>
+              <div className="w-20 h-1 bg-[#65a30d] mx-auto mb-6"></div>
               <p className="text-gray-500 uppercase tracking-[0.3em] text-xs font-bold">Some of my recent work</p>
             </div>
 
@@ -93,7 +95,7 @@ export default async function Home() {
                   />
                   <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-all">
                     <h4 className="text-white font-bold uppercase tracking-widest text-center">{project.title}</h4>
-                    <span className="text-[#a3e635] text-[10px] font-black tracking-widest mt-2 uppercase">{project.techStack[0]}</span>
+                    <span className="text-[#65a30d] text-[10px] font-black tracking-widest mt-2 uppercase">{project.techStack[0]}</span>
                   </div>
                 </Link>
               ))}
@@ -115,14 +117,14 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
               <h2 className="text-4xl font-bold text-white mb-4 tracking-tight uppercase">Key Achievements</h2>
-              <div className="w-20 h-1 bg-[#a3e635] mx-auto mb-6"></div>
+              <div className="w-20 h-1 bg-[#65a30d] mx-auto mb-6"></div>
               <p className="text-gray-500 uppercase tracking-[0.3em] text-xs font-bold">What I have accomplished</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {achievements.map((ach, index) => (
                 <div key={ach.id} className="relative group">
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${index % 2 === 0 ? 'from-[#a3e635] to-[#bef264]' : 'from-[#3b82f6] to-[#06b6d4]'} opacity-20 blur group-hover:opacity-100 transition duration-1000 group-hover:duration-200`}></div>
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${index % 2 === 0 ? 'from-[#65a30d] to-[#bef264]' : 'from-[#3b82f6] to-[#06b6d4]'} opacity-20 blur group-hover:opacity-100 transition duration-1000 group-hover:duration-200`}></div>
                   <div className="relative bg-[#1a1a1a] p-8 h-full border border-white/5">
                     <h3 className="text-2xl font-bold text-white mb-4">{ach.title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed">{ach.description}</p>
@@ -134,17 +136,21 @@ export default async function Home() {
         </section>
 
         {/* Contact Section - Themed Footer */}
-        <section className="py-32 px-8 bg-[#a3e635]">
+        <section className="py-32 px-8 bg-[#65a30d]">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
               <div className="w-20 h-20 bg-black rounded-full mx-auto mb-8 flex items-center justify-center overflow-hidden border-4 border-white shadow-xl">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100" alt="Kartikey" />
+                <img 
+                  src={bio?.image || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100"} 
+                  alt={bio?.name || "Kartikey"} 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h2 className="text-4xl font-black text-black uppercase tracking-tighter mb-4 italic">Let's build your next project!</h2>
               <p className="text-black/70 font-bold uppercase tracking-widest text-sm">Open for full-time and freelance opportunities</p>
             </div>
             
-            <div className="bg-black/5 p-12 backdrop-blur-sm border border-black/10">
+            <div className="bg-black p-12 border border-black/10">
               <ContactForm />
             </div>
           </div>

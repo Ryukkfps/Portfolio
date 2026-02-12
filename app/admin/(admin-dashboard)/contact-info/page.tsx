@@ -8,6 +8,8 @@ interface ContactInfo {
   phone: string;
   email: string;
   workingHours: string | null;
+  linkedin: string | null;
+  github: string | null;
 }
 
 export default function AdminContactInfo() {
@@ -19,6 +21,8 @@ export default function AdminContactInfo() {
     phone: '',
     email: '',
     workingHours: '',
+    linkedin: '',
+    github: '',
   });
 
   useEffect(() => {
@@ -37,6 +41,8 @@ export default function AdminContactInfo() {
             phone: data.phone || '',
             email: data.email || '',
             workingHours: data.workingHours || '',
+            linkedin: data.linkedin || '',
+            github: data.github || '',
           });
         }
       }
@@ -169,6 +175,34 @@ export default function AdminContactInfo() {
                 />
               </div>
 
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  LinkedIn URL
+                  <span className="text-xs text-gray-500 ml-2">(Optional)</span>
+                </label>
+                <input
+                  type="url"
+                  value={formData.linkedin}
+                  onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#004d66] focus:border-transparent text-gray-900 placeholder-gray-600"
+                  placeholder="https://linkedin.com/in/yourprofile"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  GitHub URL
+                  <span className="text-xs text-gray-500 ml-2">(Optional)</span>
+                </label>
+                <input
+                  type="url"
+                  value={formData.github}
+                  onChange={(e) => setFormData({ ...formData, github: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#004d66] focus:border-transparent text-gray-900 placeholder-gray-600"
+                  placeholder="https://github.com/yourusername"
+                />
+              </div>
+
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Working Hours
@@ -197,6 +231,8 @@ export default function AdminContactInfo() {
                       phone: contactInfo.phone || '',
                       email: contactInfo.email || '',
                       workingHours: contactInfo.workingHours || '',
+                      linkedin: contactInfo.linkedin || '',
+                      github: contactInfo.github || '',
                     });
                   }
                 }}
@@ -210,7 +246,7 @@ export default function AdminContactInfo() {
                 <button
                   type="button"
                   onClick={() => window.history.back()}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004d66]"
+                  className="px-6 py-3 border border-gray-300 bg-red-50 text-red-600 text-sm font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004d66]"
                 >
                   Cancel
                 </button>

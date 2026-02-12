@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from 'react';
 
-interface ContactInfoData {
+export interface ContactInfoData {
   id: string;
   address: string;
   phone: string;
   email: string;
   workingHours: string | null;
+  linkedin: string | null;
+  github: string | null;
 }
 
 interface ContactInfoProps {
@@ -63,36 +65,36 @@ export default function ContactInfo({
           container: 'text-gray-400',
           title: 'text-xs font-bold mb-10 text-white uppercase tracking-[0.2em]',
           item: 'flex items-start space-x-4 mb-6',
-          icon: 'w-5 h-5 mt-0.5 text-[#a3e635]',
+          icon: 'w-5 h-5 mt-0.5 text-[#65a30d]',
           text: 'text-gray-500 text-sm font-bold uppercase tracking-widest',
-          link: 'text-gray-500 hover:text-[#a3e635] transition-all text-sm font-bold uppercase tracking-widest'
+          link: 'text-gray-500 hover:text-[#65a30d] transition-all text-sm font-bold uppercase tracking-widest'
         };
       case 'sidebar':
         return {
           container: 'bg-[#1a1a1a] p-8 border border-white/5',
           title: 'text-sm font-black mb-6 text-white uppercase tracking-[0.2em]',
           item: 'flex items-start space-x-4 mb-6',
-          icon: 'w-5 h-5 mt-0.5 text-[#a3e635]',
+          icon: 'w-5 h-5 mt-0.5 text-[#65a30d]',
           text: 'text-gray-400 text-sm font-medium',
-          link: 'text-[#a3e635] hover:underline'
+          link: 'text-[#65a30d] hover:underline'
         };
       case 'card':
         return {
           container: 'bg-[#1a1a1a] p-10 shadow-2xl border border-white/5',
           title: 'text-xl font-black text-white mb-8 uppercase tracking-widest',
           item: 'flex items-start space-x-6 mb-8',
-          icon: 'w-6 h-6 mt-0.5 text-[#a3e635]',
+          icon: 'w-6 h-6 mt-0.5 text-[#65a30d]',
           text: 'text-gray-400 text-lg',
-          link: 'text-[#a3e635] hover:text-white transition-colors font-bold'
+          link: 'text-[#65a30d] hover:text-white transition-colors font-bold'
         };
       default:
         return {
           container: '',
           title: 'text-lg font-bold mb-6 text-white',
           item: 'flex items-start space-x-4 mb-4',
-          icon: 'w-5 h-5 mt-0.5 text-[#a3e635]',
+          icon: 'w-5 h-5 mt-0.5 text-[#65a30d]',
           text: 'text-gray-400 text-sm',
-          link: 'text-[#a3e635] hover:underline'
+          link: 'text-[#65a30d] hover:underline'
         };
     }
   };

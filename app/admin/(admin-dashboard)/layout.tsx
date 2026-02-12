@@ -15,7 +15,8 @@ import {
   FileText,
   Info,
   User,
-  Award
+  Award,
+  Layout
 } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
@@ -35,6 +36,7 @@ export default async function AdminLayout({
     { name: 'Dashboard', icon: LayoutDashboard, href: '/admin' },
     { name: 'Bio', icon: User, href: '/admin/bio' },
     { name: 'Wins', icon: Award, href: '/admin/achievements' },
+    { name: 'Services', icon: Layout, href: '/admin/services' },
     { name: 'Projects', icon: Briefcase, href: '/admin/projects' },
     { name: 'Experience', icon: FileText, href: '/admin/experience' },
     { name: 'Skills', icon: Star, href: '/admin/skills' },

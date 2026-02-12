@@ -12,7 +12,7 @@ export default async function ProjectsPage() {
       {/* Header Section */}
       <div className="py-24 px-8 border-b border-white/5">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[#a3e635] text-[10px] font-black tracking-[0.4em] uppercase mb-4">Case Studies</p>
+          <p className="text-[#65a30d] text-[10px] font-black tracking-[0.4em] uppercase mb-4">Case Studies</p>
           <h1 className="text-6xl md:text-8xl font-black text-white uppercase tracking-tighter italic leading-none">
             Selected<br/><span className="text-white/20">Works.</span>
           </h1>
@@ -26,12 +26,12 @@ export default async function ProjectsPage() {
               {/* Project Info */}
               <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
                 <div className="flex items-center gap-4">
-                  <span className="text-[#a3e635] font-black text-4xl italic tracking-tighter opacity-20">0{index + 1}</span>
-                  <div className="h-[2px] w-12 bg-[#a3e635]/30"></div>
+                  <span className="text-[#65a30d] font-black text-4xl italic tracking-tighter opacity-20">0{index + 1}</span>
+                  <div className="h-[2px] w-12 bg-[#65a30d]/30"></div>
                 </div>
                 
                 <div className="space-y-4">
-                  <h2 className="text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter italic group-hover:text-[#a3e635] transition-colors leading-none">
+                  <h2 className="text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter italic group-hover:text-[#65a30d] transition-colors leading-none">
                     {project.title}
                   </h2>
                   <div className="flex flex-wrap gap-2">
@@ -49,10 +49,10 @@ export default async function ProjectsPage() {
 
                 <div className="flex gap-8">
                   {project.githubUrl && (
-                    <a href={project.githubUrl} className="text-white font-black text-[10px] uppercase tracking-[0.3em] hover:text-[#a3e635] transition-colors border-b-2 border-[#a3e635]/20 hover:border-[#a3e635] pb-1">Codebase</a>
+                    <a href={project.githubUrl} className="text-white font-black text-[10px] uppercase tracking-[0.3em] hover:text-[#65a30d] transition-colors border-b-2 border-[#65a30d]/20 hover:border-[#65a30d] pb-1">Codebase</a>
                   )}
                   {project.demoUrl && (
-                    <a href={project.demoUrl} className="text-white font-black text-[10px] uppercase tracking-[0.3em] hover:text-[#a3e635] transition-colors border-b-2 border-[#a3e635]/20 hover:border-[#a3e635] pb-1">View Project</a>
+                    <a href={project.demoUrl} className="text-white font-black text-[10px] uppercase tracking-[0.3em] hover:text-[#65a30d] transition-colors border-b-2 border-[#65a30d]/20 hover:border-[#65a30d] pb-1">View Project</a>
                   )}
                 </div>
               </div>
@@ -69,18 +69,18 @@ export default async function ProjectsPage() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 p-8 bg-white/[0.02] border border-white/5">
                   <div className="space-y-4">
-                    <p className="text-[#a3e635] text-[10px] font-black tracking-[0.3em] uppercase">Core Features</p>
+                    <p className="text-[#65a30d] text-[10px] font-black tracking-[0.3em] uppercase">Core Features</p>
                     <ul className="space-y-3">
                       {project.features.slice(0, 4).map((item, i) => (
                         <li key={i} className="text-gray-500 text-xs font-bold leading-relaxed flex items-start">
-                          <span className="text-[#a3e635] mr-3 font-black">/</span>
+                          <span className="text-[#65a30d] mr-3 font-black">/</span>
                           {item}
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className="space-y-4">
-                    <p className="text-[#a3e635] text-[10px] font-black tracking-[0.3em] uppercase">Impact</p>
+                    <p className="text-[#65a30d] text-[10px] font-black tracking-[0.3em] uppercase">Impact</p>
                     <p className="text-gray-500 text-xs font-bold leading-relaxed italic">
                       Automated manual workflows and established a scalable foundation for business growth.
                     </p>
@@ -96,7 +96,7 @@ export default async function ProjectsPage() {
           <p className="text-gray-500 font-bold uppercase tracking-[0.4em] text-xs mb-8">Looking for a custom solution?</p>
           <Link
             href="/contact"
-            className="inline-block bg-[#a3e635] text-black px-12 py-5 text-[10px] font-black tracking-[0.4em] hover:bg-white transition-all transform hover:scale-105"
+            className="inline-block bg-[#65a30d] text-black px-12 py-5 text-[10px] font-black tracking-[0.4em] hover:bg-white transition-all transform hover:scale-105"
           >
             GET IN TOUCH
           </Link>

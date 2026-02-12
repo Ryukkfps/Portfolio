@@ -283,7 +283,7 @@ export default function ProjectsManagement() {
                 <button
                   type="button"
                   onClick={() => setShowForm(false)}
-                  className="px-6 py-2 border rounded-lg font-bold hover:bg-gray-50 transition-colors"
+                  className="px-6 py-2 border rounded-lg bg-red-50 text-red-600 font-bold hover:bg-gray-50 transition-colors"
                 >
                   Cancel
                 </button>
