@@ -32,9 +32,11 @@ export async function POST(request: NextRequest) {
 
     // Standardized upload logic
     const uploadDir =
-  process.env.NODE_ENV === "production"
-    ? path.join("/var/www/kg/Portfolio/uploads")
-    : path.join(process.cwd(), "public", "uploads");
+  process.env.UPLOAD_DIR || "/var/www/kg/Portfolio/uploads";
+
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
