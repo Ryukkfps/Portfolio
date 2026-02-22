@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && xcopy .next\\static .next\\standalone\\.next\\static /E /I /Y && xcopy public .next\\standalone\\public /E /I /Y",
+    "build:linux": "next build",
     "start": "next start",
+    "start:prod": "NODE_ENV=production next start",
     "lint": "eslint"
   },
   "prisma": {

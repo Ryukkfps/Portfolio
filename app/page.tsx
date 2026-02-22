@@ -44,7 +44,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#111111]">
-      <Hero initialSlides={slides} />
+      <Hero initialSlides={slides} bio={bio} />
       
       <main className="grow">
         {/* Our Services Section - Styled like the image */}

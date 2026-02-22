@@ -13,12 +13,17 @@ interface Slide {
   ctaText: string;
 }
 
-export default function Hero({ initialSlides }: { initialSlides: Slide[] }) {
+interface Bio {
+  image: string | null;
+  name: string;
+}
+
+export default function Hero({ initialSlides, bio }: { initialSlides: Slide[]; bio?: Bio | null }) {
   const slide = initialSlides[0] || {
     title: "Full Stack Dev.",
     subtitle: "Hi, I am Kartikey",
     description: "I build scalable web applications with React & .NET",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000",
+    image: bio?.image || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000",
     ctaText: "Know More"
   };
 
@@ -28,8 +33,8 @@ export default function Hero({ initialSlides }: { initialSlides: Slide[] }) {
       <div className="absolute right-0 top-0 h-full w-full md:w-1/2 z-0 opacity-60 md:opacity-100">
         <div className="absolute inset-0 bg-gradient-to-r from-[#111111] via-[#111111]/40 to-transparent z-10" />
         <Image
-          src={slide.image}
-          alt={slide.subtitle}
+          src={bio?.image || slide.image}
+          alt={bio?.name || slide.subtitle}
           fill
           className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000"
           priority
