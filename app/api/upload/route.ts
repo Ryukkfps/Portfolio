@@ -27,13 +27,14 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(bytes);
 
     // Create unique filename
-    const timestamp = Date.now();
     const originalName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-    const filename = `${timestamp}_${originalName}`;
+    const filename = `${originalName}`;
 
     // Standardized upload logic
-    const uploadDir = path.join(process.cwd(), "public", "uploads");
-
+    const uploadDir =
+  process.env.NODE_ENV === "production"
+    ? path.join("/var/www/kg/Portfolio/uploads")
+    : path.join(process.cwd(), "public", "uploads");
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
