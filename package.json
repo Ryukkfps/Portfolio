@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && xcopy .next\\static .next\\standalone\\.next\\static /E /I /Y && xcopy public .next\\standalone\\public /E /I /Y",
-    "build:linux": "next build",
+    "build:linux": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
     "start": "next start",
     "start:prod": "NODE_ENV=production next start",
     "lint": "eslint"
